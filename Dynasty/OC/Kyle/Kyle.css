@@ -1,0 +1,90 @@
+/* Couleurs principales */
+:root {
+    --color-primary: #009697;
+    --color-secondary: #50B498;
+    --color-accent1: #9CDBA6;
+    --color-accent2: #DEF9C4;
+    --color-background: #DEF9C4;
+}
+
+/* Style général du corps */
+body {
+    background-color: var(--color-background);
+    color: var(--color-primary);
+    font-family: 'Garota', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+
+@font-face {
+    font-family: 'Yipes';
+    src: url('font/SVN-Yipes.woff2') format('woff2'),
+         url('font/SVN-Yipes.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Garota';
+    src: url('font/Montserrat-Regular.woff2') format('woff2'),
+         url('font/Montserrat-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+#back-button {
+    background-color: var(--color-secondary);
+    border: none;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    display: block;
+    font-size: 16px;
+    margin: 20px auto;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    transition: background-color 0.3s ease;
+}
+/* Style pour l'en-tête */
+header {
+    background-color: var(--color-primary);
+    color: white;
+    padding: 20px;
+    text-align: center;
+    font-family: Bungee Hairline;
+    font-size: 21px
+}
+
+header h1 {
+    margin: 0;
+}
+
+/* Style pour le contenu de l'OC */
+#oc-content {
+    background-color: rgb(8, 44, 0);
+    border: 2px solid var(--color-secondary);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: 20px auto;
+    max-width: 800px;
+    padding: 20px;
+    width: 90%;
+    text-align: center; /* Centre le texte */
+}
+
+#oc-content h2 {
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+#oc-content p {
+    color: var(--color-primary);
+    line-height: 1.6; /* Ajustez l'espacement des lignes ici */
+}
+
+#oc-content img {
+    max-width: 100%;
+    height: auto;
+    border: 2px solid var(--color-secondary);
+    border-radius: 10px;
+    margin-top: 20px;
+}

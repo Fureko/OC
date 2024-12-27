@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynasty</title>
+    <link rel="stylesheet" href="Dynasty.css">
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script> 
+</head>
+<body>
+    <header>
+        <h1>Dynasty</h1>
+    </header>
+    <main>
+        <section id="oc-list">
+            <div class="oc-item">
+                <a href="OC/Aoki/Aoki.html">
+                    <img src="OC/Aoki/Images/Image3.png" alt="OC 1" class="oc-img">
+                    <h2>Aoki Akasura</h2>
+                </a>
+            </div>
+            <div class="oc-item">
+                <a href="OC/Kyle/Kyle.html">
+                    <img src="OC/Kyle/Images/Images1.png" alt="OC 2" class="oc-img">
+                    <h2>Kyle Wayke</h2>
+                </a>
+            </div>
+            <div class="oc-item">
+                <a href="OC/Rei/Rei.html">
+                    <img src="OC/Rei/Images/Images6.png" alt="OC 2" class="oc-img">
+                    <h2>Rei Aokami</h2>
+                </a>
+            </div>
+        </section>
+    </main>
+
+<script>
+// Fonction pour charger un fichier texte depuis le serveur
+function loadMarkdownFile(filepath, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(xhr.responseText);
+        }
+    };
+    xhr.open("GET", filepath, true);
+    xhr.send();
+}
+
+// Fonction pour convertir Markdown en HTML avec Showdown.js
+function convertMarkdownToHtml(markdownText) {
+    var converter = new showdown.Converter();
+    var html = converter.makeHtml(markdownText);
+    return html;
+}
+
+// Chargement du fichier Markdown et conversion en HTML
+document.addEventListener("DOMContentLoaded", function() {
+    var markdownFilePath = "Texte.md";  // Mettez le chemin de votre fichier Markdown ici
+    
+    loadMarkdownFile(markdownFilePath, function(markdownContent) {
+        var htmlContent = convertMarkdownToHtml(markdownContent);
+        document.getElementById("univers-description").innerHTML = htmlContent;
+    });
+});
+</script>
+</body>
+</html>

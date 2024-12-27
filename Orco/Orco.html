@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Univers 1</title>
+    <link rel="stylesheet" href="Orco.css">
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script> 
+</head>
+<body>
+    <header>
+        <h1>Orco</h1>
+    </header>
+    <main>
+        <section id="univers-description" style="font-size: 10px">
+            <p>Bienvenue dans l'Univers 1. Cet univers est rempli de mystères et d'aventures passionnantes. Découvrez nos OC qui peuplent cet univers incroyable.</p>
+        </section>
+        <section id="oc-list">
+            <div class="oc-item">
+                <a href="OC/Liam/Liam.html">
+                    <img src="OC/Liam/Images/Liam%201.jpg" alt="OC 1" class="oc-img">
+                    <h2>Liam Orco</h2>
+                </a>
+            </div>
+            <div class="oc-item">
+                <a href="OC/Mary/Mary.html">
+                    <img src="OC/Mary/Images/ImageF.jpg" alt="OC 2" class="oc-img">
+                    <h2>Mary Orco</h2>
+                </a>
+            </div>
+                        <div class="oc-item">
+                <a href="OC/Aaron/Aaron.html">
+                    <img src="OC/Aaron/Images/Image1.jpg" alt="OC 3" class="oc-img">
+                    <h2>Aaron Orco</h2>
+                </a>
+            </div>
+                        <div class="oc-item">
+                <a href="OC/Kyle/Kyle.html">
+                    <img src="OC/Kyle/Images/Image1.jpg" alt="OC 4" class="oc-img">
+                    <h2>Kyle Orco</h2>
+                </a>
+            </div>
+            <!-- Ajoutez d'autres OC ici -->
+        </section>
+    </main>
+
+<script>
+// Fonction pour charger un fichier texte depuis le serveur
+function loadMarkdownFile(filepath, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(xhr.responseText);
+        }
+    };
+    xhr.open("GET", filepath, true);
+    xhr.send();
+}
+
+// Fonction pour convertir Markdown en HTML avec Showdown.js
+function convertMarkdownToHtml(markdownText) {
+    var converter = new showdown.Converter();
+    var html = converter.makeHtml(markdownText);
+    return html;
+}
+
+// Chargement du fichier Markdown et conversion en HTML
+document.addEventListener("DOMContentLoaded", function() {
+    var markdownFilePath = "Orco.md";  // Mettez le chemin de votre fichier Markdown ici
+    
+    loadMarkdownFile(markdownFilePath, function(markdownContent) {
+        var htmlContent = convertMarkdownToHtml(markdownContent);
+        document.getElementById("univers-description").innerHTML = htmlContent;
+    });
+});
+</script>
+</body>
+</html>

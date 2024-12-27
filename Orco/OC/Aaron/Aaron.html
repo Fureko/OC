@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <title>Page d'OC avec Emojis et Texte Centré</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="Aaron.css">
+    <script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var markdownFilePath = "Aaron.md"; // Remplacez par le chemin de votre fichier Markdown
+            
+            fetch(markdownFilePath)
+                .then(response => response.text())
+                .then(markdownContent => {
+                    var converter = new showdown.Converter();
+                    var htmlContent = converter.makeHtml(markdownContent);
+                    document.getElementById("oc-content").innerHTML = htmlContent;
+                });
+        });
+    </script>
+</head>
+<body>
+    <div id="oc-page">
+        <header>
+            <h1>Aaron Orco</h1>
+        </header>
+                <button id="back-button" onclick="window.location.href='OwlOC/Orco/Orco.html'">Retour à l'univers</button>
+        <section id="oc-content">
+            <!-- Le contenu Markdown converti en HTML sera inséré ici -->
+        </section>
+    </div>
+</body>
+</html>

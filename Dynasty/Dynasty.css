@@ -1,0 +1,119 @@
+/* Couleurs principales */
+:root {
+    --color-primary: #023d3d;
+    --color-secondary: #50B498;
+    --color-accent1: #9CDBA6;
+    --color-accent2: #DEF9C4;
+    --color-background: #DEF9C4;
+}
+
+/* Styles de base */
+body {
+    font-family: 'Yipes', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--color-background);
+    color: #333;
+}
+
+@font-face {
+    font-family: 'Yipes';
+    src: url('font/SVN-Yipes.woff2') format('woff2'),
+         url('font/SVN-Yipes.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Garota';
+    src: url('font/Montserrat-Regular.woff2') format('woff2'),
+         url('font/Montserrat-Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+/* Style du header */
+header {
+    background: linear-gradient(135deg, var(--color-primary) 10%, var(--color-secondary) 100%);
+    color: white;
+    text-align: center;
+    padding: 1em;
+    font-family: 'Bungee Hairline';
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2em;
+}
+
+/* Style de la section de description de l'univers */
+#univers-description {
+    text-align: center;
+    padding: 1em 2em;
+    background-color: var(--color-accent2);
+    color: var(--color-primary);
+    margin: 2em auto;
+    max-width: 800px;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#univers-description p {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+/* Style de la section des OC */
+#oc-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    padding: 2em;
+}
+
+/* Style des éléments des OC */
+.oc-item {
+    margin: 1em;
+    text-align: center;
+    transition: transform 0.3s;
+    width: 300px; /* Taille des cartes */
+    background-color: var(--color-accent1);
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.oc-item:hover {
+    transform: scale(1.05);
+}
+
+/* Style des images des OC */
+.oc-img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+}
+
+/* Style des titres des OC */
+.oc-item h2 {
+    margin: 0;
+    padding: 1em;
+    color: var(--color-primary);
+    font-size: 1.5em;
+    background-color: var(--color-secondary);
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    text-transform: uppercase;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .oc-item {
+        width: 90%;
+    }
+
+    #univers-description {
+        padding: 1em;
+    }
+}
