@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuriste</title>
+    <link rel="stylesheet" href="Futuriste.css">
+<link href="https://fonts.googleapis.com/css2?family=Bungee+Hairline&family=Silkscreen:wght@400;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Audiowide&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+<script src="https://cdn.jsdelivr.net/npm/showdown@2.1.0/dist/showdown.min.js"></script> 
+</head>
+<body>
+    <header>
+        <h1>Futuriste</h1>
+    </header>
+    <main>
+        <section id="oc-list">
+            <div class="oc-item">
+                <a href="OC/Aeon/Aeon.html">
+                    <img src="OC/Aeon/Images/Image1.png" alt="OC 1" class="oc-img">
+                    <h2>Aeon Solan</h2>
+                </a>
+            </div>
+
+        </section>
+    </main>
+
+<script>
+// Fonction pour charger un fichier texte depuis le serveur
+function loadMarkdownFile(filepath, callback) {
+    var xhr = new XMLHttpRequest();
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            callback(xhr.responseText);
+        }
+    };
+    xhr.open("GET", filepath, true);
+    xhr.send();
+}
+
+// Fonction pour convertir Markdown en HTML avec Showdown.js
+function convertMarkdownToHtml(markdownText) {
+    var converter = new showdown.Converter();
+    var html = converter.makeHtml(markdownText);
+    return html;
+}
+
+// Chargement du fichier Markdown et conversion en HTML
+document.addEventListener("DOMContentLoaded", function() {
+    var markdownFilePath = "Texte.md";  // Mettez le chemin de votre fichier Markdown ici
+    
+    loadMarkdownFile(markdownFilePath, function(markdownContent) {
+        var htmlContent = convertMarkdownToHtml(markdownContent);
+        document.getElementById("univers-description").innerHTML = htmlContent;
+    });
+});
+</script>
+</body>
+</html>
